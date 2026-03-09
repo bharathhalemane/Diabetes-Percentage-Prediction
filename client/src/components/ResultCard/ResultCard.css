@@ -1,0 +1,32 @@
+.result-card{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 25px 30px;
+    border-radius: 15px;
+    color: white;
+    max-width: 800px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* success */
+.result-card.success{
+    background: linear-gradient(135deg,#2fb67c,#3db6a0);
+}
+
+/* danger */
+.result-card.danger{
+    background: linear-gradient(135deg,#e23b3b,#cc3c6b);
+}
+
+.result-details-container{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.result-content{
+    text-align: start ;
+}
