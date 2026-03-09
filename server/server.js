@@ -1,7 +1,9 @@
+const dotenv = require("dotenv")
+dotenv.config()
 const express = require("express")
 const axios = require("axios")
 const cors = require("cors")
-
+const aiRecommendations = require("./routes/aiRecommendations.js")
 const app = express()
 
 app.use(cors())
@@ -21,6 +23,8 @@ app.post("/predict", async (req, res) => {
         res.status(500).json({ error: "Prediction failed" })
     }
 })
+app.use("/api/ai-recommendations", aiRecommendations);
+
 
 app.listen(4000, () => {
     console.log("Server running on port 4000")
