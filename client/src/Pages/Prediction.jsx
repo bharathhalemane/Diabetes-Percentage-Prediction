@@ -9,7 +9,12 @@ import GlucoseCalculator from "../components/calculators/GlucoseCalculator";
 import BMICalculator from "../components/calculators/BMICalculator";
 import SkinThicknessCalculator from "../components/calculators/SkinThicknessCalculator";
 import ResultCard from "../components/ResultCard/ResultCard";
-
+import Recommendation from "../components/Recommendation/Recommendation"
+import {DNA} from "react-loader-spinner"
+const apiProgress = {
+    success : "SUCCESS",
+    loading: "LOADING"
+}
 const Prediction = () => {
     const [form, setForm] = useState({
         pregnancies: "",
@@ -22,8 +27,9 @@ const Prediction = () => {
         age: ""
     })
 
+    const [apiStatus, setApiStatus] = useState("")
     const [result, setResult] = useState("1")
-    const [prob, setProb] = useState("0.43")
+    const [prob, setProb] = useState(0.86)
 
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value })
@@ -31,11 +37,14 @@ const Prediction = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-
+        setApiStatus(apiProgress.loading)
+        
         const res = await axios.post("http://localhost:4000/predict", form)
-
+        
+        setApiStatus(apiProgress.success)
         setResult(res.data.prediction)
         setProb(res.data.probability)
+        
     }
 
     const changeBloodPressure = (result) => {        
@@ -123,13 +132,29 @@ return (
                 <input name="age" placeholder="e.g. 45" onChange={handleChange} className="form-input" value={form.age}/>
             </div>
 
-            <div className="button-containers">
+            
+            {
+                apiStatus === apiProgress.loading ? 
+                    <div className="button-containers">
+                        <div className="loader">
+                            <DNA
+                                visible={true}
+                                height="60"
+                                width="60"
+                                ariaLabel="dna-loading"
+                                wrapperStyle={{}}
+                                wrapperClass="dna-wrapper"
+                            />
+                        </div>
+                    </div> : <div className="button-containers">
                 <button type="submit" className="predict-btn"><Activity size={20}/> Predict</button>
                 <button type="reset" className="reset-btn">Reset</button>
             </div>
+            }
         </form>
 
-        {result && <ResultCard probability={prob}/> }
+        {result && <ResultCard probability={prob} />}
+        {result && <Recommendation probability={prob}/>}
       
     </div>
 )

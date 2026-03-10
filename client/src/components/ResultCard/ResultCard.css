@@ -7,7 +7,7 @@
     border-radius: 15px;
     color: white;
     max-width: 800px;
-    width: 100%;
+    width: 85%;
     margin-bottom: 20px;
 }
 
@@ -29,4 +29,27 @@
 
 .result-content{
     text-align: start ;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+
+  .result-card{
+      padding: 18px 20px;
+      gap: 15px;
+      border-radius: 12px;
+  }
+
+  .result-details-container{
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+      width: 100%;
+  }
+
+  .result-content{
+      width: 100%;
+      text-align: left;
+  }
+
 }

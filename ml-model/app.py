@@ -24,7 +24,6 @@ def predict():
 
     features = scaler.transform(features)
     prediction = model.predict(features)[0][0]
-    print(prediction)
     result = "Diabetes" if prediction > 0.5 else "No Diabetes"
 
     return jsonify({
