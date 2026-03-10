@@ -37,7 +37,7 @@ React Frontend
 Node.js + Express API
       │
       ▼
-TensorFlow.js Machine Learning Model
+Machine Learning Model
       │
       ▼
 Prediction Result
