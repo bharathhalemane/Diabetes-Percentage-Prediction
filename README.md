@@ -43,7 +43,7 @@ Machine Learning Model
 Prediction Result
 ```
 
-The machine learning model is trained in **Python using TensorFlow**, then converted to **TensorFlow.js** so it can run inside the Node.js backend.
+The machine learning model is trained in **Python**.
 
 ---
 
@@ -99,13 +99,11 @@ diabetes-prediction-system
 │   │
 │   ├── train_model.py
 │   ├── requirements.txt
-│   └── tfjs_model
+│   └── app.py
 │
 ├── backend
 │   ├── server.js
-│   ├── routes
-│   │   └── predict.js
-│   └── model
+│   └── routes
 │
 └── frontend
     └── React App
@@ -147,13 +145,17 @@ Train the model:
 python train_model.py
 ```
 
-Convert model to TensorFlow.js:
+Run the model:
 
 ```
-tensorflowjs_converter \
---input_format keras \
-diabetes_model \
-tfjs_model
+python app.py
+```
+
+Model runs on:
+
+```
+Models runs one prediction api
+http://localhost:5000
 ```
 
 ---
@@ -181,7 +183,7 @@ node server.js
 Server runs on:
 
 ```
-http://localhost:5000
+http://localhost:4000
 ```
 
 ---
@@ -203,13 +205,13 @@ npm install
 Run the app:
 
 ```
-npm start
+npm run dev
 ```
 
 Application runs on:
 
 ```
-http://localhost:3000
+http://localhost:5173
 ```
 
 ---
