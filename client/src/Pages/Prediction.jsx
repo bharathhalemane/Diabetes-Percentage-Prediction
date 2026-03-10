@@ -28,8 +28,8 @@ const Prediction = () => {
     })
 
     const [apiStatus, setApiStatus] = useState("")
-    const [result, setResult] = useState("1")
-    const [prob, setProb] = useState(0.86)
+    const [result, setResult] = useState("")
+    const [prob, setProb] = useState()
 
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value })
