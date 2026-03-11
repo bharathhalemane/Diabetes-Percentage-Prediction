@@ -4,4 +4,6 @@ diabetes_model
 
 diabetes_model.h5
 
+diabetes_model.keras
 prediction.py
+scaler.pkl
