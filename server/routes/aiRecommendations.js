@@ -23,7 +23,7 @@ router.post("/", async (req, res) => {
                 Each recommendation must include:
                 - a short title
                 - a short practical description
-                - a relevant lucide-react icon name that best represents the advice
+                - a relevant lucide-react icon name that best represents the advice, give valid icons
 
                 Choose the icon that best matches the meaning of the recommendation.
                 For example:

@@ -18,6 +18,7 @@ const Recommendation = ({ probability }) => {
             const response = await axios.post(url, { probability })
             const data = response.data
             setResponseData(data)
+            console.log(data)
             setApiStatus(apiProgress.success)
         } catch (err) {
             console.log(err)
